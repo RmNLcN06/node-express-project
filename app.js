@@ -17,7 +17,13 @@ app.get('/', (req, res)=>
 {
     res.render('index', 
         {
-            title: 'GlobalTerms'
+            title: 'GlobalTerms',
+            data: 
+            [
+                'First data',
+                'Second data',
+                'Third data'
+            ],
         }
     );
 });
