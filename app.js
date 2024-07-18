@@ -14,5 +14,5 @@ app.get('/', (req, res)=>{
 });
 
 app.listen(3000, ()=>{
-    debug(`Listening on port ${chalk.green('3000')}`)
+    debug(`Listening to port ${chalk.green('3000')}`)
 });
