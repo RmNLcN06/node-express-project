@@ -133,15 +133,16 @@
 
                 <section class="sec_include">
                     <div class="container">
-                        <div class="row">
+
+                        <% sessions.map((session) => { %>
                             <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
-                                <h3>DARK ENERGY</h3>
-                                <p>BRIGHTENS THE WORLD</p>
-                                <img src="imgs/Bitmap.png" alt="Public Adjuster"/>
-                                <div class="read-more-btn">
-                                    <a href="#" class="btn-oval">Learn More</a>
-                                </div>
+                                <h3><%=session.title%></h3>
+                                <p><%=session.description%></p>
+                                <a href="#" class="btn-oval">Learn More</a>
                             </div>
+                        <% }) %>
+
+                        
                             <div class="col-xs-12 col-sm-4 col-md-4 adj_text">
                                 <h3>ROBOTICS</h3>
                                 <p>THEY ARE HERE AND THEY PLAY</p>
