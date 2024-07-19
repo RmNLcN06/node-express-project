@@ -21,8 +21,9 @@ sessionsRouter.route('/').get((req, res) => {
     });
 })
 
-sessionsRouter.route('/1').get((req, res) => {
-    res.send('It\'s a single sessions part');
+sessionsRouter.route('/:id').get((req, res) => {
+    const id = req.params.id;
+    res.send(`It is the single session with id ${id}`);
 })
 
 app.use('/sessions', sessionsRouter);
