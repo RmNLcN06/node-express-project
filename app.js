@@ -4,6 +4,7 @@ const debug = require('debug')('app');
 const morgan = require('morgan');
 const path = require('path');
 const sessionsRouter = require('./src/routers/sessionsRouter');
+const adminRouter = require('./src/routers/adminRouter');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -17,7 +18,7 @@ app.set('view engine', 'ejs');
 
 
 app.use('/sessions', sessionsRouter);
-
+app.use('/admin', adminRouter);
 app.get('/', (req, res)=>
 {
     res.render('index', 
