@@ -50,6 +50,11 @@ button {
     background: none;
 
 }
+
+input {
+    color: black;
+}
+
 .logo {
 
     margin: 30px 0px;padding:0px;
