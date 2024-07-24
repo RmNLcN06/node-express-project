@@ -1,5 +1,7 @@
 const passport = require('passport');
 const { Strategy } = require('passport-local');
+const { MongoClient } = require('mongodb');
+const debug = require('debug')('app:localStrategy');
 
 module.exports = function localStrategy() {
     passport.use(
@@ -9,6 +11,29 @@ module.exports = function localStrategy() {
             passwordField: 'password',
         },
         (username, password, done) => {
+            const url = 'mongodb+srv://dbUser:Hollow_Ichigo8891@cluster0.z6d8o6r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+            const dbName = 'globalterms';
+
+            (async function validateUser() {
+                let client;
+                try{
+                    client = await MongoClient.connect(url);
+                    debug('Connected to the MongoDb');
+
+                    const db = client.db(dbName);
+                    const user = await db.collection('users').findOne({username});
+
+                    if(user && user.password === password) {
+                        done(null, user);
+                    } else {
+                        done(null, false);
+                    }
+                }catch(error) {
+                    done(error, false)
+                }
+                client.close();
+            })
+
             const user = { username, password, name: 'Romain'};
             done(null, user);
         }
