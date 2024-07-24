@@ -8,7 +8,7 @@ const authRouter = express.Router();
 authRouter.route('/signUp').post((req, res) => {
   const { username, password } = req.body;
 
-  const url = 'mongodb+srv://dbUser:Hollow_Ichigo8891@cluster0.z6d8o6r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+  const url = 'mongodb+srv://dbUser:***@cluster0.z6d8o6r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
   const dbName = 'globalterms';
 
   (async function addUser() {
