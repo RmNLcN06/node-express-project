@@ -4,6 +4,13 @@ const { MongoClient, ObjectId } = require('mongodb');
 const sessions = require('../data/sessions.json');
 const sessionsRouter = express.Router();
 
+sessionsRouter.use((req, res, next) => {
+    if(req.user) {
+        next();
+    } else {
+        res.redirect('/auth/signIn');
+    }
+});
 sessionsRouter.route('/').get((req, res) => {
     const url = 'mongodb+srv://dbUser:Hollow_Ichigo8891@cluster0.z6d8o6r.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
     const dbName = 'globalterms';
